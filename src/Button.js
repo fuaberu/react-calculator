@@ -22,24 +22,24 @@ const Button = ({ btn, stateChanger, btnClass, display, calculate }) => {
 					display !== 0 &&
 					Number.isInteger(parseInt(display.toString().slice(-1)))
 				)
-					stateChanger(`${display} * `);
+					stateChanger(`${display}*`);
 				break;
 			case '+': // +
 				if (
 					display !== 0 &&
 					Number.isInteger(parseInt(display.toString().slice(-1)))
 				)
-					stateChanger(`${display} + `);
+					stateChanger(`${display}+`);
 				break;
 			case '-':
-				stateChanger(`${display} - `);
+				stateChanger(`${display}-`);
 				break;
 			case '/':
 				if (
 					display !== 0 &&
 					Number.isInteger(parseInt(display.toString().slice(-1)))
 				)
-					stateChanger(`${display} / `);
+					stateChanger(`${display}/`);
 				break;
 			case '.':
 				if (display.toString().indexOf('.') < 0) stateChanger(`${display}.`);
@@ -84,35 +84,36 @@ const Button = ({ btn, stateChanger, btnClass, display, calculate }) => {
 		}
 		switch (event.keyCode) {
 			case 13: //enter
-				calculate();
+				if (Number.isInteger(parseInt(display.toString().slice(-1))))
+					calculate();
 				break;
 			case 106: // *
 				if (
 					display !== 0 &&
 					Number.isInteger(parseInt(display.toString().slice(-1)))
 				)
-					stateChanger(`${display} * `);
+					stateChanger(`${display}*`);
 				break;
 			case 107: // +
 				if (
 					display !== 0 &&
 					Number.isInteger(parseInt(display.toString().slice(-1)))
 				)
-					stateChanger(`${display} + `);
+					stateChanger(`${display}+`);
 				break;
 			case 109:
 				if (
 					display !== 0 &&
 					Number.isInteger(parseInt(display.toString().slice(-1)))
 				)
-					stateChanger(`${display} - `);
+					stateChanger(`${display}-`);
 				break;
 			case 111:
 				if (
 					display !== 0 &&
 					Number.isInteger(parseInt(display.toString().slice(-1)))
 				)
-					stateChanger(`${display} / `);
+					stateChanger(`${display}/`);
 				break;
 			case 194:
 				if (display.toString().indexOf('.') < 0) stateChanger(`${display}.`);
@@ -133,5 +134,3 @@ const Button = ({ btn, stateChanger, btnClass, display, calculate }) => {
 		</button>
 	);
 };
-
-export default Button;
