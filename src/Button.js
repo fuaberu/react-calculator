@@ -134,3 +134,5 @@ const Button = ({ btn, stateChanger, btnClass, display, calculate }) => {
 		</button>
 	);
 };
+
+export default Button;
